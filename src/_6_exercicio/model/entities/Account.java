@@ -57,12 +57,12 @@ public class Account {
 	}
 	
 	private void validateWithDraw(double amount) {
-		if (amount > balance) {
-			throw new DomainException("Erro de saque: Saldo insuficiente");
-		}
-		
 		if (amount > withdrawLimit) {
 			throw new DomainException("Erro de saque: A quantia excede o limite de saque");
+		}
+		
+		if (amount > balance) {
+			throw new DomainException("Erro de saque: Saldo insuficiente");
 		}
 	}
 	
